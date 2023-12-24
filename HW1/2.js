@@ -49,12 +49,13 @@ const menu = new Map([
 
 // Вам необходимо реализовать класс, который управляет заказами и поварами.
 class Manager {
+  orders = new Map();
+
   constructor(chefsSpec, menu) {
     this.chefsSpec = chefsSpec;
     this.menu = menu;
-  }
 
-  orders = new Map();
+  }
 
   newOrder(client, ...clientOrders) {
     try {
