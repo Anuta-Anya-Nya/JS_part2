@@ -63,7 +63,7 @@ class Review {
     this.id = id;
     this.text = text;
   }
-  render() {
+  printReview() {
     return `
     <li class="review">${this.text}</li>
     `;
@@ -76,22 +76,22 @@ class Product {
     this.reviews = reviews;
   }
 
-  renderReviews() {
+  printReviews() {
     const revList = this.reviews
       .map((rev) => {
         const review = new Review(rev.id, rev.text);
-        return review.render();
+        return review.printReview();
       })
       .join("");
     return revList;
   }
 
-  render() {
+  printProduct() {
     return `
     <div class="product">
     <div class="product-title">${this.product}</div>
     <ul class="reviews-list">
-    ${this.renderReviews()}
+    ${this.printReviews()}
     </ul>
     <input type="text" class="review-input" />
     <button class="add-button">Добавить</button>
@@ -102,7 +102,11 @@ class Product {
 }
 
 class ProductList {
-  #products = initialData;
+  #products;
+
+  constructor(productsList) {
+    this.#products = productsList;
+  }
 
   get allItems() {
     return this.#products;
@@ -116,22 +120,22 @@ class ProductList {
     const prodList = this.#products
       .map((item) => {
         const prodItem = new Product(item.product, item.reviews);
-        return prodItem.render();
+        return prodItem.printProduct();
       })
       .join("");
     document.querySelector(".product-list").innerHTML = prodList;
   }
 }
 
-const prodList = new ProductList();
+const prodList = new ProductList(initialData);
 prodList.render();
 
 document.querySelector(".product-list").addEventListener("click", (event) => {
   if (!event.target.classList.contains("add-button")) return;
-  
+
   const targetProduct = event.target.closest(".product");
   const productTitle = targetProduct.querySelector(".product-title");
-  const reviewInput = targetProduct.querySelector(".review-input");   
+  const reviewInput = targetProduct.querySelector(".review-input");
 
   const index = prodList.allItems.findIndex((el) => {
     return el.product === productTitle.textContent;

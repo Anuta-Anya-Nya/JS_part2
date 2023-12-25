@@ -23,7 +23,7 @@ class Library {
   #books = [];
   
   constructor(books) {
-    let set = new Set(books);
+    const set = new Set(books);
     if (books.length !== set.size)
       throw new Error("предоставленный массив содержит дубликаты!");
     this.#books = books;
