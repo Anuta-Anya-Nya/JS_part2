@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .form {
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form">
+      <label for="productName">Название продукта:</label>
+      <input type="text" id="productName" />
+      <label for="productReview">Отзыв о продукте:</label>
+      <textarea id="productReview" cols="30" rows="10"></textarea>
+      <button class="addReview">Добавить отзыв</button>
+    </div>
+    <div class="error-mes"></div>
+    <a href="task2.html">Просмотреть товары с отзывами</a>
+    <script src="repo.js"></script>
+    <script src="task1.js"></script>
+  </body>
+</html>
