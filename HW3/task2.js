@@ -1,5 +1,5 @@
 const productsBox = document.querySelector(".products-box");
-const productsList = getLocalStorage();
+const productsList = getProducts();
 
 class Review {
   constructor(text) {
@@ -43,9 +43,11 @@ class Product {
 
 class ProductList {
   #products;
+  productsBox;
 
-  constructor(productsList) {
+  constructor(productsList, box) {
     this.#products = productsList;
+    this.productsBox = box;
   }
 
   get allItems() {
@@ -70,7 +72,7 @@ class ProductList {
   }
 }
 
-const prodList = new ProductList(productsList);
+const prodList = new ProductList(productsList, productsBox);
 prodList.render();
 
 productsBox.addEventListener("click", (event) => {
@@ -102,6 +104,6 @@ productsBox.addEventListener("click", (event) => {
   });
 
   prodList.delReview(indexProd, indexReview);
-  setLocalStorage(prodList.allItems);
+  saveProducts(prodList.allItems);
   prodList.render();
 });
