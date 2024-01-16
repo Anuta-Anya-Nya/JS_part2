@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/4edf1f583e.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .container {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        overflow: auto;
+      }
+      .slider {
+        width: 70%;        
+        img {
+          display: block;
+          width: 100%;
+          border: none;
+        }
+      }
+      .slider__images {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .slider__arrows {
+        font-size: 25px;
+        color: gray;
+        cursor: pointer;
+        background: none;
+        border: none;
+      }
+      .slider__arrows:hover {
+        color: rgb(43, 42, 42);
+      }
+      .points {
+        display: flex;
+        justify-content: center;
+        margin-top: 5px;
+        
+        input{
+            cursor: pointer;
+        }
+      }
+    </style>
+
+    <div class="container">
+      <div class="slider">
+        <div class="slider__images">
+          <button id="prevImg" class="slider__arrows">
+            <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>
+          </button>
+          <div class="images-box">
+            <img src="img1.jpg" alt="рисунок" style="display: block" />
+            <img src="img2.jpg" alt="рисунок" style="display: none" />
+            <img src="img3.jpg" alt="рисунок" style="display: none" />
+            <img src="9022.jpg" alt="рисунок" style="display: none" />
+          </div>
+          <button id="nextImg" class="slider__arrows">
+            <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="points">
+          <input type="radio" name="img" value="0" checked/>
+          <input type="radio" name="img" value="1" />
+          <input type="radio" name="img" value="2" />
+          <input type="radio" name="img" value="3" />
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
