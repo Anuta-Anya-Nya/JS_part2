@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/4edf1f583e.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <style>
+      .container {
+        width: 500px;
+        margin: 0 auto;
+        padding-top: 25px;
+      }
+      .image__likes {
+        cursor: pointer;
+      }
+      .image__likes:hover {
+        color: gray;
+      }
+      .image__counterLikes {
+        margin-left: 5px;
+      }
+      .history__list {
+        padding: 0;
+      }
+      .viewed-image {
+        cursor: pointer;
+        list-style: none;
+        margin-bottom: 5px;
+      }
+      .viewed-image:hover {
+        color: gray;
+      }
+    </style>
+    <div class="container">
+      <div><img src="" id="image" alt="random image" /></div>
+      <p class="image__author"></p>
+      <div>
+        <i class="fa fa-heart image__likes" aria-hidden="true"></i
+        ><span class="image__counterLikes"></span>
+      </div>
+      <div class="history">
+        <h2>Последние просмотренные фото:</h2>
+        <ul class="history__list"></ul>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

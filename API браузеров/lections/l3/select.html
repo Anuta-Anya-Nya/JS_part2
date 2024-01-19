@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form name="superForm">
+      <select name="selectForm" multiple>
+        <!-- мультивыбор -->
+        <option value="GB" selected>GB</option>
+        <option value="SB" selected>SB</option>
+        <option value="SF">SkillFactory</option>
+      </select>
+    </form>
+
+    <script>
+      const select = document.forms.superForm.selectForm;
+
+      //одинаковые действия в 3 строках: выбор 3 значения
+      select.options[2].selected = true;
+      select.selectedIndex = 2;
+      select.value = "SF";
+      
+      // отбор выбранных элементов и получение массива с value
+      const selected = Array.from(select.options)
+        .filter((option) => option.selected)
+        .map((option) => option.value);
+      console.log(selected);
+    </script>
+  </body>
+</html>
