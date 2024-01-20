@@ -85,7 +85,8 @@ history.forEach((image) => {
         const selectedImage = ev.target.querySelector("img");
         selectedImage.attributes.src.value = data.urls.small;
         selectedImage.style = "display: block";
-      });
+      })
+      .catch((error) => console.error(error.message));
   });
 });
 
@@ -100,7 +101,8 @@ window.addEventListener("load", () => {
       author.innerText = data.user.name;
       counterLikes.innerText = getLikesFromLocalStorage();
       saveItemHistory(data.id, data.alt_description);
-    });
+    })
+    .catch((error) => console.error(error.message));
 });
 
 // увеличение лайков при клике
